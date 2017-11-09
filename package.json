@@ -18,7 +18,7 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
-    "mock-api": "json-server --watch data/invoices.json"
+    "api-server": "json-server --watch data/invoices.json"
   },
   "jest": {
     "preset": "jest-expo"
