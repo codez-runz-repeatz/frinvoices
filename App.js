@@ -5,11 +5,14 @@ import { InvoiceStack } from './navigation'
 import { fetchInvoicesFromAPI } from './actions/invoices'
 
 export default class edit extends React.Component {
+  componentDidMount() {
+    this.props.getInvoices()
+  }
   render() {
     const { invoices, isFetching } = props.invoices;
     return (
         <View style={styles.container}>
-          <InvoiceStack />
+          <InvoiceStack invoice={props.invoices}/>
         </View>
     );
   }
