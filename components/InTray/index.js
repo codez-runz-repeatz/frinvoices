@@ -12,19 +12,18 @@ import { SearchBar } from 'react-native-elements'
 import { ICON_SIZE, EICON_SIZE } from '../../basics/icons';
 
 export const dataSource = () => {
-  return props.invoices;
+  return this.props.invoices;
 };
 
 
 export default class InTray extends React.Component {
-
   handleRowPress = (item) => {
     this.props.navigation.navigate('InTrayEdit', item)
   }
-
+  
   render() {
+    
     return (
-
       <View style={styles.mainContainer}>
         <View style={styles.headerTitle}>
           <Text style={styles.headerTitleLabel}>All Inboxes</Text>
@@ -38,7 +37,7 @@ export default class InTray extends React.Component {
         </View>
 
         <FlatList
-          data={props.invoices}
+          data={this.props.screenProps.invoices}
           renderItem={({ item }) => <MyobItem component={item} onPress={() => this.handleRowPress(item)} />}
           keyExtractor={(item) => item.id}
         />

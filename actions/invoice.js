@@ -1,9 +1,9 @@
-import { FETCHING_INVOICES, FETCHING_INVOICES_SUCCESS, FETCHING_INVOICES_FAILURE } from './constants'
+import { FETCHING_INVOICES, FETCHING_INVOICES_SUCCESS, FETCHING_INVOICES_FAILURE } from '../constants'
 
 export function fetchInvoicesFromAPI() {
   return (dispatch) => {
     dispatch(getInvoices())
-    fetch('http://localhost:3000/invoices/')
+    fetch('http://10.0.0.4:3000/invoices/')
     .then(data => data.json())
     .then(json => {
       console.log('json:', json)

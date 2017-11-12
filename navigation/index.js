@@ -1,4 +1,5 @@
-import { React } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import { StackNavigator }  from 'react-navigation';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -10,7 +11,7 @@ import colors from '../basics/colors'
 
 export const InvoiceStack = StackNavigator({
         InTray :{
-            screen: InTray,
+            screen: (props) => <InTray {...props} {...props.invoices}/>,
             navigationOptions:{
                 title: 'All Inboxes',
                 headerTintColor: colors.brandGrayLighterTwo,

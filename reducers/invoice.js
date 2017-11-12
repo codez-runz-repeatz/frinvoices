@@ -10,14 +10,14 @@ export default function invoiceReducer (state = initialState, action) {
     case FETCHING_INVOICES:
       return {
         ...state,
-        INVOICEs: [],
+        invoices: [],
         isFetching: true
       }
     case FETCHING_INVOICES_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        INVOICEs: action.data
+        invoices: action.data
       }
     case FETCHING_INVOICES_FAILURE:
       return {
