@@ -1,10 +1,10 @@
 // reducers/index.js
 
 import { combineReducers } from 'redux'
-import invoice from './invoice'
+import invoices from './invoice'
 
 const rootReducer = combineReducers({
-    invoice
+    invoices
 });
 
 export default rootReducer
