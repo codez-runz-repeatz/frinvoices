@@ -210,5 +210,109 @@
             },
             "amount": "$500"
         }
+    ],
+    "companies": [
+        {
+            "uid": "8221",
+            "uri": "https://fury-nz.essentials.dev.myob.com/LA.CO.NZ/api/public/businesses/8221",
+            "name": "Tim test company2",
+            "abn": null,
+            "ird": null,
+            "abnBranch": null,
+            "serialNumber": "641828104722",
+            "status": "TRIAL",
+            "gstRegistered": true,
+            "firstName": "Tim",
+            "lastName": "Xu",
+            "email": "tim.xu@myob.com.au",
+            "phone": "0391542122",
+            "streetAddress": {
+                "addressLine1": null,
+                "addressLine2": null,
+                "suburb": null,
+                "state": null,
+                "postCode": null,
+                "country": "New Zealand"
+            },
+            "postalAddress": {
+                "addressLine1": null,
+                "addressLine2": null,
+                "suburb": null,
+                "state": null,
+                "postCode": null,
+                "country": "New Zealand"
+            },
+            "financialYearStart": "April",
+            "financialYearEnd": "March",
+            "_links": []
+        },
+        {
+            "uid": "8222",
+            "uri": "https://fury-nz.essentials.dev.myob.com/LA.CO.NZ/api/public/businesses/8222",
+            "name": "Tim test company3",
+            "abn": null,
+            "ird": null,
+            "abnBranch": null,
+            "serialNumber": "642412812058",
+            "status": "TRIAL",
+            "gstRegistered": true,
+            "firstName": "Tim",
+            "lastName": "Xu",
+            "email": "tim.xu@myob.com.au",
+            "phone": "0391544322",
+            "streetAddress": {
+                "addressLine1": null,
+                "addressLine2": null,
+                "suburb": null,
+                "state": null,
+                "postCode": null,
+                "country": "New Zealand"
+            },
+            "postalAddress": {
+                "addressLine1": null,
+                "addressLine2": null,
+                "suburb": null,
+                "state": null,
+                "postCode": null,
+                "country": "New Zealand"
+            },
+            "financialYearStart": "April",
+            "financialYearEnd": "March",
+            "_links": []
+        },
+        {
+            "uid": "8220",
+            "uri": "https://fury-nz.essentials.dev.myob.com/LA.CO.NZ/api/public/businesses/8220",
+            "name": "Tim's SIT Business",
+            "abn": "           ",
+            "ird": null,
+            "abnBranch": "   ",
+            "serialNumber": "645523807228",
+            "status": "TRIAL",
+            "gstRegistered": true,
+            "firstName": "Tim",
+            "lastName": "Xu",
+            "email": "tim.xu@myob.com.au",
+            "phone": "+64 123456",
+            "streetAddress": {
+                "addressLine1": "167 Cremorne St",
+                "addressLine2": "",
+                "suburb": "Cremorne",
+                "state": "",
+                "postCode": "3121",
+                "country": "New Zealand"
+            },
+            "postalAddress": {
+                "addressLine1": "167 Cremorne St",
+                "addressLine2": "",
+                "suburb": "Cremorne",
+                "state": "",
+                "postCode": "3121",
+                "country": "New Zealand"
+            },
+            "financialYearStart": "April",
+            "financialYearEnd": "March",
+            "_links": []
+        }
     ]
 }
