@@ -7,22 +7,26 @@ import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { SearchBar } from 'react-native-elements'
-
-
 import { ICON_SIZE, EICON_SIZE } from '../../basics/icons';
 
-export const dataSource = () => {
-  return this.props.invoices;
-};
-
-
 export default class InTray extends React.Component {
-  handleRowPress = (item) => {
-    this.props.navigation.navigate('InTrayEdit', item)
+  constructor(props) {
+    super(props);
+    this.state = {invoices: []};
   }
-  
+  handleRowPress = (item) => {
+    this.props.navigation.navigate('InTrayEdit', item);
+  }
+  search = (searchText) => {
+    searchText = searchText.toLowerCase();
+    this.setState({
+      invoices: this.props.screenProps.invoices.filter(invoice => invoice.core.customer.desc.toLowerCase().indexOf(searchText)>=0)
+    })
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({invoices: nextProps.screenProps.invoices});
+  }
   render() {
-    
     return (
       <View style={styles.mainContainer}>
         <View style={styles.headerTitle}>
@@ -32,12 +36,12 @@ export default class InTray extends React.Component {
         <View style={styles.searchContainer}>
           <SearchBar
             lightTheme
-            onChangeText={dataSource}
+            onChangeText={this.search}
             placeholder='Type Here...' />
         </View>
 
         <FlatList
-          data={this.props.screenProps.invoices}
+          data={this.state.invoices}
           renderItem={({ item }) => <MyobItem component={item} onPress={() => this.handleRowPress(item)} />}
           keyExtractor={(item) => item.id}
         />
