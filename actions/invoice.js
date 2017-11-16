@@ -3,7 +3,7 @@ import { FETCHING_INVOICES, FETCHING_INVOICES_SUCCESS, FETCHING_INVOICES_FAILURE
 export function fetchInvoicesFromAPI() {
   return (dispatch) => {
     dispatch(getInvoices())
-    fetch('http://10.0.0.4:3000/invoices/')
+    fetch('http://10.63.40.146:3000/invoices/')
     .then(data => data.json())
     .then(json => {
       console.log('json:', json)

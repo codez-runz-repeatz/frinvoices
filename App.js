@@ -4,20 +4,20 @@ import { Provider } from 'react-redux'
 import { StyleSheet, View } from 'react-native';
 import { InvoiceStack } from './navigation'
 import { fetchInvoicesFromAPI } from './actions/invoice'
+import { fetchCompaniesFromAPI } from './actions/company'
 import configStore from './configStore'
-import { inTray as intrayData } from './data/invoices'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
   }
   componentDidMount() {
-    this.props.getInvoices();
+    this.props.getCompanies();
   }
   render() {
     return (
         <View style={styles.container}>
-          <InvoiceStack screenProps={this.props.invoices}/>
+          <InvoiceStack screenProps={this.props.companies}/>
         </View>
     );
   }
@@ -33,13 +33,13 @@ const styles = StyleSheet.create({
 
 function mapStateToProps (state) {
   return {
-    invoices: state.invoices
+    companies: state.companies
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    getInvoices: () => dispatch(fetchInvoicesFromAPI())
+    getCompanies: () => dispatch(fetchCompaniesFromAPI())
   }
 }
 

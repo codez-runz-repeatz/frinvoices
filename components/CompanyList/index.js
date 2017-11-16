@@ -20,11 +20,13 @@ export default class CompanyList extends React.Component {
   search = (searchText) => {
     searchText = searchText.toLowerCase();
     this.setState({
-      invoices: this.props.screenProps.companies.filter(company => company.name.desc.toLowerCase().indexOf(searchText)>=0)
+      companies: this.props.screenProps.companies.filter(company => company.name.toLowerCase().indexOf(searchText)>=0)
     })
   }
   componentWillReceiveProps(nextProps) {
-    this.setState({invoices: nextProps.screenProps.companies});
+    console.log('componentWillReceiveProps');
+    console.log(nextProps.screenProps.companies)
+    this.setState({companies: nextProps.screenProps.companies});
   }
   render() {
     return (
@@ -42,8 +44,8 @@ export default class CompanyList extends React.Component {
 
         <FlatList
           data={this.state.companies}
-          renderItem={({ item }) => <MyobItem component={item} onPress={() => this.handleRowPress(item)} />}
-          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <CompanyItem component={item} onPress={() => this.handleRowPress(item)} />}
+          keyExtractor={(item) => item.uid}
         />
 
         <View style={styles.footerInfo}>

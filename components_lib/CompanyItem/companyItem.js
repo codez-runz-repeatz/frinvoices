@@ -28,20 +28,7 @@ const CompanyItem = ({ component, onPress }) => {
         </View>
 
         <View>
-        
-
-          <Text style={styles.customer}>{component.core.customer.desc}</Text>
-        
-        <Text style={styles.reference}>
-          Due: {component.core.date} |
-          Amount: $2.00 |
-          Satus: {component.status}
-          </Text>
-
-          <Text style={styles.date}>Invoice Number: {component.core.ref}
-           | (svo) <Icon name={iconName} size={XSMALL} style={styles.icon_grey} color={myobColor}/>
-           | (ovd) <Icon name={iconName} size={XSMALL} style={styles.icon_grey} color={myobColor}/>
-           | (upa) <Icon name={iconName} size={XSMALL} style={styles.icon_grey} color={myobColor}/></Text>
+          <Text style={styles.customer}>{component.name}</Text>
         </View>
         
         <View style={styles.chevronContainer}>

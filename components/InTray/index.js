@@ -2,14 +2,15 @@ import React from 'react';
 import { TextInput, StyleSheet, Text, View, FlatList, ListView, TouchableOpacity, Platform } from 'react-native';
 import { inTray } from '../../data/invoices';
 import { MyobItem } from '../../components_lib/MyobItem';
-
+import { connect } from 'react-redux';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { SearchBar } from 'react-native-elements'
 import { ICON_SIZE, EICON_SIZE } from '../../basics/icons';
+import { fetchInvoicesFromAPI } from '../../actions/invoice'
 
-export default class InTray extends React.Component {
+class InTray extends React.Component {
   constructor(props) {
     super(props);
     this.state = {invoices: []};
@@ -20,11 +21,14 @@ export default class InTray extends React.Component {
   search = (searchText) => {
     searchText = searchText.toLowerCase();
     this.setState({
-      invoices: this.props.screenProps.invoices.filter(invoice => invoice.core.customer.desc.toLowerCase().indexOf(searchText)>=0)
+      invoices: this.props.invoices.invoices.filter(invoice => invoice.core.customer.desc.toLowerCase().indexOf(searchText)>=0)
     })
   }
+  componentDidMount() {
+    this.props.getInvoices();
+  }
   componentWillReceiveProps(nextProps) {
-    this.setState({invoices: nextProps.screenProps.invoices});
+    this.setState({invoices: nextProps.invoices.invoices});
   }
   render() {
     return (
@@ -69,3 +73,20 @@ export default class InTray extends React.Component {
     );
   }
 };
+
+function mapStateToProps (state) {
+  return {
+    invoices: state.invoices
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    getInvoices: () => dispatch(fetchInvoicesFromAPI())
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InTray)
