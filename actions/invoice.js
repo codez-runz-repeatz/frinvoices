@@ -1,13 +1,13 @@
 import { FETCHING_INVOICES, FETCHING_INVOICES_SUCCESS, FETCHING_INVOICES_FAILURE } from '../constants'
 
-export function fetchInvoicesFromAPI() {
+export function fetchInvoicesFromAPI(companyId) {
+  
   return (dispatch) => {
     dispatch(getInvoices())
     fetch('http://10.63.40.146:3000/invoices/')
     .then(data => data.json())
-    .then(json => {
-      console.log('json:', json)
-      dispatch(getInvoiceSuccess(json))
+    .then(invoices => {
+      dispatch(getInvoiceSuccess(invoices.filter(invoice => invoice.companyId==companyId)))
     })
     .catch(err => dispatch(getInvocieFailure(err)))
   }

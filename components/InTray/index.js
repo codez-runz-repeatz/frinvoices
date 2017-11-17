@@ -25,7 +25,7 @@ class InTray extends React.Component {
     })
   }
   componentDidMount() {
-    this.props.getInvoices();
+    this.props.getInvoices(this.props.navigation.state.params.uid);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({invoices: nextProps.invoices.invoices});
@@ -82,7 +82,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    getInvoices: () => dispatch(fetchInvoicesFromAPI())
+    getInvoices: (companyId) => dispatch(fetchInvoicesFromAPI(companyId))
   }
 }
 

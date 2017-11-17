@@ -28,7 +28,10 @@ const CompanyItem = ({ component, onPress }) => {
         </View>
 
         <View>
+        
+
           <Text style={styles.customer}>{component.name}</Text>
+        
         </View>
         
         <View style={styles.chevronContainer}>
